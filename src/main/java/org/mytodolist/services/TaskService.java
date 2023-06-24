@@ -5,9 +5,11 @@ import org.mytodolist.domain.entities.TaskPriority;
 import org.mytodolist.domain.entities.TaskStatus;
 import org.mytodolist.repositories.TaskRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -23,8 +25,22 @@ public class TaskService {
         taskRepository.save(task);
     }
 
+    @Transactional
+    public void deleteTask(Task task) {
+        taskRepository.delete(task);
+    }
+
+    public Optional<Task> findById(Integer id) {
+        return taskRepository.findById(id);
+    }
+
     public List<Task> getAllTasks() {
-        return taskRepository.findAll();
+        List<Task> list = taskRepository.findAll();
+        list.sort(Comparator
+                .comparing(Task::getDueTo)
+                .thenComparing(Task::getTaskPriority)
+                .thenComparing(Task::getId));
+        return list;
     }
 
     public List<Task> getAllByStatus(TaskStatus status) {
@@ -41,14 +57,5 @@ public class TaskService {
                 .stream()
                 .filter(task -> task.getTaskPriority() == priority)
                 .collect(Collectors.toList());
-    }
-
-    public List<Task> getAllSortedByDeadline() {
-        List<Task> list = taskRepository.findAll();
-        list.sort(Comparator
-                .comparing(Task::getDueTo)
-                .thenComparing(Task::getTaskPriority)
-                .thenComparing(Task::getId));
-        return list;
     }
 }

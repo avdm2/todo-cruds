@@ -14,7 +14,7 @@ public class TaskDto {
     String title;
     String description = "";
 
-    LocalDateTime deadline = LocalDateTime.now().plusDays(14);
+    LocalDateTime deadline = LocalDateTime.MIN;
 
     TaskPriority taskPriority = TaskPriority.NO_PRIORITY;
     TaskStatus taskStatus = TaskStatus.NOT_SELECTED;
