@@ -20,7 +20,7 @@ Route - **"/api/tasks/{id}"**
 ---
 
 ### Обновление задачи по ID [PUT]
-Route - **"/api/books/{id}"**
+Route - **"/api/tasks/{id}"**
 
 Запрос:
 ```json
