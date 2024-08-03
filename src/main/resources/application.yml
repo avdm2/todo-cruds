@@ -1,7 +1,9 @@
+server:
+  port: 8085
+
 spring:
-  datasource:
-    url: ${POSTGRES_URL:jdbc:postgresql://localhost:5432/todolist}
-    driverClassName: org.postgresql.Driver
+  r2dbc:
+    url: r2dbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:todolist}
     username: ${POSTGRES_USER:postgres}
     password: ${POSTGRES_PASSWORD:admin}
   jpa:
@@ -10,15 +12,10 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-        order_by.default_null_ordering: last
-        format_sql: true
-    open-in-view: false
-    show-sql: true
-    generate-ddl: true
+  data:
+    r2dbc:
+      repositories:
+        enabled: true
   jackson:
-    default-property-inclusion: non_null
     deserialization:
       fail-on-unknown-properties: false
-
-server:
-  port: 8081

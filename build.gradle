@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.3.2'
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'org.mytodolist'
+version = '2.0.0'
+
+java {
+    sourceCompatibility = '17'
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    set('springBootVersion', '3.3.2')
+    set('springWebfluxVersion', '6.1.11')
+
+    set('r2dbcPostgresqlVersion', '1.0.5.RELEASE')
+
+    set('lombokVersion', '1.18.34')
+
+    set('mapstructVersion', '1.5.5.Final')
+}
+
+dependencies {
+
+    implementation "org.springframework.boot:spring-boot-starter-webflux:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-data-r2dbc:${springBootVersion}"
+
+    implementation "org.postgresql:r2dbc-postgresql:${r2dbcPostgresqlVersion}"
+
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+    implementation "org.mapstruct:mapstruct:${mapstructVersion}"
+    annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
+}
+
+test {
+    useJUnitPlatform()
+}

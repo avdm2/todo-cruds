@@ -1,6 +1,7 @@
-package org.mytodolist.domain.entities;
+package org.mytodolist.model.enums;
 
 public enum TaskStatus {
+
     NOT_SELECTED,
     IN_PROGRESS,
     DONE

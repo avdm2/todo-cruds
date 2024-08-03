@@ -1,6 +1,7 @@
-package org.mytodolist.domain.entities;
+package org.mytodolist.model.enums;
 
 public enum TaskPriority {
+
     NO_PRIORITY,
     LOW,
     MEDIUM,
