@@ -1,6 +1,5 @@
 package org.mytodolist.controller;
 
-import lombok.extern.slf4j.Slf4j;
 import org.mytodolist.entity.TaskEntity;
 import org.mytodolist.model.dto.TaskDto;
 import org.mytodolist.model.enums.TaskPriority;
@@ -20,7 +19,6 @@ import reactor.core.publisher.Mono;
 
 import java.util.List;
 
-@Slf4j
 @RestController
 @RequestMapping("/api/v1/tasks")
 @CrossOrigin(origins = "http://localhost:8085")

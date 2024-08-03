@@ -1,6 +1,5 @@
 package org.mytodolist.service;
 
-import lombok.extern.slf4j.Slf4j;
 import org.mytodolist.entity.TaskEntity;
 import org.mytodolist.model.converter.TaskConverter;
 import org.mytodolist.model.dto.TaskDto;
@@ -15,7 +14,6 @@ import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.Optional;
 
-@Slf4j
 @Service
 public class TaskService {
 
@@ -54,7 +52,6 @@ public class TaskService {
     public Mono<TaskEntity> updateTask(Integer id, TaskDto taskDto) {
         return taskRepository.findById(id)
                 .map(taskEntity -> {
-                    log.info("{}", taskEntity);
                     Optional.of(taskDto.getTitle()).ifPresent(taskEntity::setTitle);
                     Optional.of(taskDto.getDescription()).ifPresent(taskEntity::setDescription);
                     Optional.of(taskDto.getDueTo()).ifPresent(taskEntity::setDueTo);
