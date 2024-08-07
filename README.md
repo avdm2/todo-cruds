@@ -1,8 +1,7 @@
 # MyTodoList
 
 # TODO:
-1. Тесты
-2. Разбить init.sql на два скрипта - создание схемы и создание скрипта
+2. Flyway (2 скрипта, создание схемы, создание таблицы)
 3. Docker + Docker compose 
 4. GitHub Actions
 
