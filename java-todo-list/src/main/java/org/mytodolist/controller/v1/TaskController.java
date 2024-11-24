@@ -1,4 +1,4 @@
-package org.mytodolist.controller;
+package org.mytodolist.controller.v1;
 
 import org.mytodolist.entity.TaskEntity;
 import org.mytodolist.model.dto.TaskDto;
@@ -6,7 +6,6 @@ import org.mytodolist.model.enums.TaskPriority;
 import org.mytodolist.model.enums.TaskStatus;
 import org.mytodolist.service.TaskService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +20,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/tasks")
-@CrossOrigin(origins = "http://localhost:8085")
 public class TaskController {
 
     private final TaskService taskService;

@@ -1,14 +1,12 @@
-# MyTodoList
+# MyTodoList - Java, Rust, CPP, Go, JS, Kotlin
 
-# TODO:
-2. Flyway (2 скрипта, создание схемы, создание таблицы)
-3. Docker + Docker compose 
-4. GitHub Actions
-
-## Стек
-- Язык: `Java`
-- Фреймворк: `Spring`, `Project Reactor`
-- СУБД: `PostgreSQL`
+## Фреймворки
+- Java: `Spring`, `Project Reactor`
+- Rust: todo
+- C++: todo
+- Go: todo
+- JS: todo
+- Kotlin: todo
 
 ## API
 
